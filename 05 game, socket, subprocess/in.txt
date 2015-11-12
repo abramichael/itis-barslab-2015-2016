@@ -1,0 +1,4 @@
+string
+upper
+'abc'
+out.dat
