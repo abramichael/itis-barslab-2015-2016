@@ -1,0 +1,19 @@
+<h1>POST</h1>
+<p><i>{{ post.pub_date}}</i></p>
+<p>{{ post.text }}</p>
+<hr/>
+<form action="{% url "comment" post.id %}" method="POST">{% csrf_token %}
+    <textarea name="text"></textarea>
+    <input type="submit" value="send">
+</form>
+
+
+{% for p in comments %}
+    <hr/>
+    <p><i>{{ p.pub_date}}</i></p>
+    <p>{{ p.text }}</p>
+{% endfor %}
+
+<hr/>
+
+(c) ITIS, 2015

@@ -1,0 +1,16 @@
+<h1>{{ title }}!</h1>
+
+<form action="{% url "show_board" %}" method="POST">{% csrf_token %}
+    <textarea name="text"></textarea>
+    <input type="submit" value="send">
+</form>
+
+{% for p in posts %}
+    <hr/>
+    <p><i>{{ p.pub_date}}</i></p>
+    <p>{{ p.text }}</p>
+{% endfor %}
+
+<hr/>
+
+(c) ITIS, 2015
