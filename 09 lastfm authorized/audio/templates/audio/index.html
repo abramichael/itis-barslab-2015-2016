@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Hello, {{ username }}!</h3>
+<a href="{% url "audio:tracks" %}">All audios</a> | 
+<a href="{% url "logout" %}">Log out</a>
+
+<h4>Favorite music:</h4>
+{% if audios %}
+
+    {% for audio in audios %}
+        <li>{{ audio.title }} ({{ audio.artist }})</li>
+    {% endfor %}
+
+{% else %}
+
+    You did not add any songs to your list. Do it now!
+
+{% endif %}
+
+{% endblock %}
