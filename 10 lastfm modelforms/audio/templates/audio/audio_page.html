@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Track</p>
+    <h2>{{ audio.title }}</h2>
+    <p><i>Artist</i>: {{ audio.artist }}</p>
+    <p><i>Album</i>: {{ audio.album }}</p>
+    Favorited by:
+    <ul>
+        {% for u in liked %}
+            <li>{{ u.username }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
