@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Track</p>
+    <h2>{{ audio.title }}</h2>
+    <p><i>Artist</i>: {{ audio.artist }}</p>
+    <p><i>Album</i>: {{ audio.album }}</p>
+    <p><i>Genre</i>: {{ audio.get_genre_display }}</p>
+    Favorited by:
+    <ul>
+        {% for u in liked %}
+            <li>{{ u.username }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'audio:audio_data_page' audio.id %}">Audio Data</a> |
+    <a href="{% url 'audio:update_audio' audio.id %}">Update Info</a> |
+{% endblock %}
